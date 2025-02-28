@@ -1,10 +1,10 @@
-# API de Cálculo de Média
+# API de Cálculo de BTUs para Ar-Condicionado
 
 ## Visão Geral
 Esta API permite:
 - Registro de usuários
 - Login para autenticação
-- Cálculo de médias aritméticas para números enviados via payload
+- Cálculo de BTUs necessários para climatização de ambientes
 
 ## Endpoints
 
@@ -45,10 +45,10 @@ Esta API permite:
   }
   ```
 
-### 3. Cálculo de Média
-**POST** `/calculate-average`
+### 3. Cálculo de BTUs
+**POST** `/calculate-btus`
 
-- **Descrição**: Calcula a média de uma lista de números enviados.
+- **Descrição**: Calcula a quantidade de BTUs necessária para climatização de um ambiente.
 - **Autenticação:** Token JWT necessário no cabeçalho.
 - **Headers:**
   ```json
@@ -59,13 +59,19 @@ Esta API permite:
 - **Payload:**
   ```json
   {
-    "numbers": [10, 20, 30, 40]
+    "room_area": 20,
+    "number_of_people": 3,
+    "sun_exposure": "high"
   }
   ```
+  - `room_area` (número): Área do ambiente em metros quadrados.
+  - `number_of_people` (número): Quantidade de pessoas no ambiente.
+  - `sun_exposure` (string): Exposição ao sol (`low`, `medium`, `high`).
+
 - **Exemplo de Resposta:**
   ```json
   {
-    "average": 25
+    "btus": 18000
   }
   ```
 
@@ -87,7 +93,7 @@ Esta API permite:
   }
   ```
 
-### 3. Cálculo de Média
+### 3. Cálculo de BTUs
 - **Falta de autenticação:**
   ```json
   {
@@ -97,7 +103,7 @@ Esta API permite:
 - **Payload inválido:**
   ```json
   {
-    "error": "A lista de números é obrigatória."
+    "error": "Os campos 'room_area', 'number_of_people' e 'sun_exposure' são obrigatórios."
   }
   ```
 
@@ -119,3 +125,8 @@ Esta API permite:
    ```bash
    npm start
    ```
+
+## Testes
+Para executar testes unitários:
+```bash
+npm test
