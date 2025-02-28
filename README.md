@@ -56,26 +56,6 @@ Esta API permite:
     "Authorization": "Bearer <seu-token-jwt>"
   }
   ```
-- **Payload:**
-  ```json
-  {
-    "room_area": 20,
-    "number_of_people": 3,
-    "sun_exposure": "high"
-  }
-  ```
-  - `room_area` (número): Área do ambiente em metros quadrados.
-  - `number_of_people` (número): Quantidade de pessoas no ambiente.
-  - `sun_exposure` (string): Exposição ao sol (`low`, `medium`, `high`).
-
-- **Exemplo de Resposta:**
-  ```json
-  {
-    "btus": 18000
-  }
-  ```
-
-## Erros Comuns
 
 ### 1. Registro de Usuário
 - **E-mail já cadastrado:**
