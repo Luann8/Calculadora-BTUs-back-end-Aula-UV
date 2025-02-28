@@ -20,11 +20,13 @@ Esta API permite:
    npm install
    ```
 3. Configure o arquivo `.env` com suas credenciais de banco de dados.
-4. Inicie o servidor:
    ```bash
    npm start
    ```
-
+4. Inicie o servidor:
+   ```bash
+   adonis serve --dev
+   ```
 ## Testes
 Para executar testes unitários:
 ```bash
